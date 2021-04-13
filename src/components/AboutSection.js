@@ -1,5 +1,6 @@
 import React from "react";
 
+import Wave from "./Wave";
 //styled components
 import { About, Description, Image, Hide } from "../styles";
 
@@ -37,6 +38,7 @@ function AboutSection() {
           alt="guy with a camera"
         />
       </Image>
+      <Wave />
     </About>
   );
 }
