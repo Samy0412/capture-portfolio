@@ -5,6 +5,7 @@ import { About, Description, Image, Hide } from "../styles";
 
 //framer Motion
 import { motion } from "framer-motion";
+import { titleAnim, fade, photoAnim } from "../animation";
 
 function AboutSection() {
   return (
@@ -12,25 +13,29 @@ function AboutSection() {
       <Description>
         <motion.div className="title">
           <Hide>
-            <motion.h2>We work to make</motion.h2>
+            <motion.h2 variants={titleAnim}>We work to make</motion.h2>
           </Hide>
           <Hide>
-            <motion.h2>
+            <motion.h2 variants={titleAnim}>
               your <span>dreams</span> come
             </motion.h2>
           </Hide>
           <Hide>
-            <motion.h2>true.</motion.h2>
+            <motion.h2 variants={titleAnim}>true.</motion.h2>
           </Hide>
         </motion.div>
-        <p>
+        <motion.p variants={fade}>
           Contacts us for any photography ideas that you have. We have
           professionals with amazing skills.
-        </p>
-        <button>Contact us</button>
+        </motion.p>
+        <motion.button variants={fade}>Contact us</motion.button>
       </Description>
       <Image>
-        <img src="./img/home1.png" alt="guy with a camera" />
+        <motion.img
+          variants={photoAnim}
+          src="./img/home1.png"
+          alt="guy with a camera"
+        />
       </Image>
     </About>
   );
