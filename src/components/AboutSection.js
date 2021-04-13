@@ -10,7 +10,7 @@ function AboutSection() {
           </div>
           <div className="hide">
             <h2>
-              your <span>dreams</span>come
+              your <span>dreams</span> come
             </h2>
           </div>
           <div className="hide">
