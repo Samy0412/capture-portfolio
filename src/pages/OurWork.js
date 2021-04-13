@@ -1,38 +1,49 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-//Images
-import athlete from "../img/athlete-small.png";
-import theracer from "../img/theracer-small.png";
-import goodtimes from "../img/goodtimes-small.png";
 
 function OurWork() {
+  const [movies, setMovies] = useState([]);
+
+  //useEffect
+  useEffect(() => {
+    const fetchMovies = async () => {
+      const response = await fetch("/db.json");
+      const json = await response.json();
+      return json.movies;
+    };
+
+    fetchMovies()
+      .then((movies) => setMovies(movies))
+      .catch((err) => console.log(err));
+  }, [movies]);
+
   return (
     <Work>
-      <Movie>
-        <h2>The Athlete</h2>
-        <div className="line"></div>
-        <Link>
-          <img src={athlete} alt="athlete" />
-        </Link>
-      </Movie>
-      <Movie>
-        <h2>The Racer</h2>
-        <div className="line"></div>
-        <Link>
-          <img src={theracer} alt="theracer" />
-        </Link>
-      </Movie>
-      <Movie>
-        <h2>Good Times</h2>
-        <div className="line"></div>
-        <Link>
-          <img src={goodtimes} alt="goodtimes" />
-        </Link>
-      </Movie>
+      {movies?.map((movie) => (
+        <Movie
+          title={movie.title}
+          img={movie.mainImg}
+          id={movie.id}
+          key={movie.id}
+        />
+      ))}
     </Work>
   );
 }
+
+//Movie component
+const Movie = ({ title, id, img }) => {
+  return (
+    <MovieStyle>
+      <h2>{title}</h2>
+      <div className="line"></div>
+      <Link to={`/work/${id}`}>
+        <img src={img} alt="athlete" />
+      </Link>
+    </MovieStyle>
+  );
+};
 
 const Work = styled.div`
   min-height: 100vh;
@@ -42,7 +53,7 @@ const Work = styled.div`
     padding: 1rem 0rem;
   }
 `;
-const Movie = styled.div`
+const MovieStyle = styled.div`
   padding-bottom: 10rem;
   .line {
     height: 0.5rem;

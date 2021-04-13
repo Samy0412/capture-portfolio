@@ -10,6 +10,7 @@ import OurWork from "./pages/OurWork";
 
 //router
 import { Switch, Route } from "react-router-dom";
+import MovieDetails from "./pages/MovieDetails";
 
 function App() {
   return (
@@ -20,8 +21,11 @@ function App() {
         <Route exact path="/">
           <AboutUs />
         </Route>
-        <Route path="/work">
+        <Route exact path="/work">
           <OurWork />
+        </Route>
+        <Route path="/work/:id">
+          <MovieDetails />
         </Route>
         <Route path="/contact">
           <ContactUs />
