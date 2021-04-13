@@ -5,6 +5,10 @@ import styled from "styled-components";
 //router
 import { useParams } from "react-router-dom";
 
+//Animations
+import { motion } from "framer-motion";
+import { pageAnimation } from "../animation";
+
 function MovieDetails() {
   let { id } = useParams();
   const [movie, setMovie] = useState(null);
@@ -25,7 +29,12 @@ function MovieDetails() {
   return (
     <>
       {movie && (
-        <Details>
+        <Details
+          exit="exit"
+          variants={pageAnimation}
+          initial="hidden"
+          animate="show"
+        >
           <Headline>
             <h2>{movie.title}</h2>
             <img src={movie.mainImg} alt="movie"></img>
@@ -48,7 +57,7 @@ function MovieDetails() {
   );
 }
 
-const Details = styled.div`
+const Details = styled(motion.div)`
   color: white;
 `;
 const Headline = styled.div`

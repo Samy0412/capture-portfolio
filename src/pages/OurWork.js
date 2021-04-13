@@ -2,6 +2,10 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
+//Animations
+import { motion } from "framer-motion";
+import { pageAnimation } from "../animation";
+
 function OurWork() {
   const [movies, setMovies] = useState([]);
 
@@ -19,7 +23,13 @@ function OurWork() {
   }, [movies]);
 
   return (
-    <Work>
+    <Work
+      exit="exit"
+      variants={pageAnimation}
+      initial="hidden"
+      animate="show"
+      style={{ background: "#fff" }}
+    >
       {movies?.map((movie) => (
         <Movie
           title={movie.title}
@@ -45,7 +55,7 @@ const Movie = ({ title, id, img }) => {
   );
 };
 
-const Work = styled.div`
+const Work = styled(motion.div)`
   min-height: 100vh;
   overflow: hidden;
   padding: 5rem 10rem;

@@ -1,28 +1,28 @@
 import React from "react";
 
-//styles
-import styled from "styled-components";
-
 //styled components
 import { About, Description, Image, Hide } from "../styles";
+
+//framer Motion
+import { motion } from "framer-motion";
 
 function AboutSection() {
   return (
     <About>
       <Description>
-        <div className="title">
+        <motion.div className="title">
           <Hide>
-            <h2>We work to make</h2>
+            <motion.h2>We work to make</motion.h2>
           </Hide>
           <Hide>
-            <h2>
+            <motion.h2>
               your <span>dreams</span> come
-            </h2>
+            </motion.h2>
           </Hide>
           <Hide>
-            <h2>true.</h2>
+            <motion.h2>true.</motion.h2>
           </Hide>
-        </div>
+        </motion.div>
         <p>
           Contacts us for any photography ideas that you have. We have
           professionals with amazing skills.
@@ -30,10 +30,7 @@ function AboutSection() {
         <button>Contact us</button>
       </Description>
       <Image>
-        <img
-          src="https://raw.githubusercontent.com/developedbyed/the-creative-react-course-capture/master/src/img/home1.png"
-          alt="guy with a camera"
-        />
+        <img src="./img/home1.png" alt="guy with a camera" />
       </Image>
     </About>
   );
