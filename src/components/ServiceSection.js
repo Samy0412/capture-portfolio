@@ -12,9 +12,15 @@ import styled from "styled-components";
 //styled components
 import { About, Description, Image, Cards, Card } from "../styles";
 
+//framer motion
+import { fade } from "../animation";
+
+import UseScroll from "./UseScroll";
+
 function ServiceSection() {
+  const [element, controls] = UseScroll();
   return (
-    <Services>
+    <Services variants={fade} animate={controls} initial="hidden" ref={element}>
       <Description>
         <h2>
           High <span>quality</span> services

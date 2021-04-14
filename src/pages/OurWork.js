@@ -13,8 +13,11 @@ import {
   sliderContainer,
 } from "../animation";
 
+import UseScroll from "../components/UseScroll";
+
 function OurWork() {
   const [movies, setMovies] = useState([]);
+  const [element, controls] = UseScroll();
 
   //useEffect
   useEffect(() => {
@@ -43,12 +46,16 @@ function OurWork() {
         <Frame3 variants={slider} />
         <Frame4 variants={slider} />
       </motion.div>
-      {movies?.map((movie) => (
+      {movies?.map((movie, index) => (
         <Movie
           title={movie.title}
           img={movie.mainImg}
           id={movie.id}
           key={movie.id}
+          ref={element}
+          variants={fade}
+          initial="hidden"
+          animate={controls}
         />
       ))}
     </Work>
