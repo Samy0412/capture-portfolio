@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import Wave from "./Wave";
 //styled components
@@ -29,7 +30,9 @@ function AboutSection() {
           Contact us for any photography ideas that you have. We have
           professionals with amazing skills.
         </motion.p>
-        <motion.button variants={fade}>Contact us</motion.button>
+        <Link to="/contact">
+          <motion.button variants={fade}>Contact us</motion.button>
+        </Link>
       </Description>
       <Image>
         <motion.img

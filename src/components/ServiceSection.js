@@ -1,10 +1,4 @@
 import React from "react";
-//Import Icons
-import clock from "../img/clock.svg";
-import diaphragm from "../img/diaphragm.svg";
-import money from "../img/money.svg";
-import teamwork from "../img/teamwork.svg";
-import home2 from "../img/home2.png";
 
 //styles
 import styled from "styled-components";
@@ -28,28 +22,28 @@ function ServiceSection() {
         <Cards>
           <Card>
             <div className="icon">
-              <img alt="icon" src={clock} />
+              <img alt="icon" src="./img/clock.svg" />
               <h3>Efficient</h3>
             </div>
             <p>Lorem ipsum dolor sit amet.</p>
           </Card>
           <Card>
             <div className="icon">
-              <img alt="icon" src={teamwork} />
+              <img alt="icon" src="./img/teamwork.svg" />
               <h3>Teamwork</h3>
             </div>
             <p>Lorem ipsum dolor sit amet.</p>
           </Card>
           <Card>
             <div className="icon">
-              <img alt="icon" src={diaphragm} />
+              <img alt="icon" src="./img/diaphragm.svg" />
               <h3>Diaphragm</h3>
             </div>
             <p>Lorem ipsum dolor sit amet.</p>
           </Card>
           <Card>
             <div className="icon">
-              <img alt="icon" src={money} />
+              <img alt="icon" src="./img/money.svg" />
               <h3>Affordable</h3>
             </div>
             <p>Lorem ipsum dolor sit amet.</p>
@@ -57,7 +51,7 @@ function ServiceSection() {
         </Cards>
       </Description>
       <Image>
-        <img alt="camera" src={home2} />
+        <img alt="camera" src="./img/home2.png" />
       </Image>
     </Services>
   );
