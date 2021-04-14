@@ -26,7 +26,7 @@ function AboutSection() {
           </Hide>
         </motion.div>
         <motion.p variants={fade}>
-          Contacts us for any photography ideas that you have. We have
+          Contact us for any photography ideas that you have. We have
           professionals with amazing skills.
         </motion.p>
         <motion.button variants={fade}>Contact us</motion.button>

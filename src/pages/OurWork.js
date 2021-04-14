@@ -4,7 +4,14 @@ import { Link } from "react-router-dom";
 
 //Animations
 import { motion } from "framer-motion";
-import { pageAnimation } from "../animation";
+import {
+  pageAnimation,
+  fade,
+  photoAnim,
+  lineAnim,
+  slider,
+  sliderContainer,
+} from "../animation";
 
 function OurWork() {
   const [movies, setMovies] = useState([]);
@@ -30,6 +37,12 @@ function OurWork() {
       animate="show"
       style={{ background: "#fff" }}
     >
+      <motion.div variants={sliderContainer}>
+        <Frame1 variants={slider} />
+        <Frame2 variants={slider} />
+        <Frame3 variants={slider} />
+        <Frame4 variants={slider} />
+      </motion.div>
       {movies?.map((movie) => (
         <Movie
           title={movie.title}
@@ -46,10 +59,12 @@ function OurWork() {
 const Movie = ({ title, id, img }) => {
   return (
     <MovieStyle>
-      <h2>{title}</h2>
-      <div className="line"></div>
+      <motion.h2 variants={fade}>{title}</motion.h2>
+      <motion.div variants={lineAnim} className="line"></motion.div>
       <Link to={`/work/${id}`}>
-        <img src={img} alt="athlete" />
+        <Hide>
+          <motion.img variants={photoAnim} src={img} alt="athlete" />
+        </Hide>
       </Link>
     </MovieStyle>
   );
@@ -63,11 +78,11 @@ const Work = styled(motion.div)`
     padding: 1rem 0rem;
   }
 `;
-const MovieStyle = styled.div`
+const MovieStyle = styled(motion.div)`
   padding-bottom: 10rem;
   .line {
     height: 0.5rem;
-    background: #cccccc;
+    background: #23d997;
     margin-bottom: 3rem;
   }
   img {
@@ -77,4 +92,27 @@ const MovieStyle = styled.div`
   }
 `;
 
+const Hide = styled.div`
+  overflow: hidden;
+`;
+
+const Frame1 = styled(motion.div)`
+  position: fixed;
+  left: 0;
+  top: 10%;
+  width: 100%;
+  height: 100vh;
+  background: #fffebf;
+  z-index: 2;
+`;
+
+const Frame2 = styled(Frame1)`
+  background: #ff8efb;
+`;
+const Frame3 = styled(Frame1)`
+  background: #8ed2ff;
+`;
+const Frame4 = styled(Frame1)`
+  background: #8effa0;
+`;
 export default OurWork;
